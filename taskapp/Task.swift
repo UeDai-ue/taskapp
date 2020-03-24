@@ -7,7 +7,7 @@ class Task: Object {
     @objc dynamic var id = 0
 
     // タイトル
-    @objc dynamic var title = ""
+    @objc dynamic var title = "無題"
 
     // 内容
     @objc dynamic var contents = ""

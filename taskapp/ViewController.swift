@@ -15,11 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //検索結果が入る配列
-    private var searchResult: Array<String> = []
-    //テーブルビューに表示する配列
-    private var items: Array<String> = []
-    
     // Realmインスタンスを取得する
     let realm = try! Realm()
     
@@ -33,6 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
     }
     
@@ -47,8 +43,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         let task = taskArray[indexPath.row]
-        cell.textLabel?.text = task.title + "[" + task.category + "]"
-        
+        if task.category != "" {
+            cell.textLabel?.text = task.title + "[" + task.category + "]"
+        }else{
+            cell.textLabel?.text = task.title
+        }
+                
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         
@@ -122,23 +122,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
+    
+    
+    
+    
     func searchItems(searchText: String) {
         //要素を検索する
         if searchText != "" {
-            searchResult = items.filter { item in
-                return item.contains(searchText)
-            } as Array
+            let searchText = realm.objects(Task.self).filter("category = '\(searchText)'")
+            taskArray = searchText
         } else {
             //渡された文字列が空の場合は全てを表示
-            searchResult = items
+            let searchText = realm.objects(Task.self)
+            taskArray = searchText
         }
         //tableViewを再読み込みする
         tableView.reloadData()
     }
 
-    // MARK: - Search Bar Delegate Methods
+    
     // テキストが変更される毎に呼ばれる
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("textDidChangeが呼ばれた")
         //検索する
         searchItems(searchText: searchText)
     }
@@ -147,7 +152,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         view.endEditing(true)
-        
+        let searchText = realm.objects(Task.self)
+        taskArray = searchText
         //tableViewを再読み込みする
         tableView.reloadData()
     }
