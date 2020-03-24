@@ -129,8 +129,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchItems(searchText: String) {
         //要素を検索する
         if searchText != "" {
-            let searchText = realm.objects(Task.self).filter("category = '\(searchText)'")
-            taskArray = searchText
+            
+            //let searchText = realm.objects(Task.self).filter("category = '\(searchText)'")
+            //taskArray = searchText
+            //上二行の書き方では" \ "または" ' "が入力された時にクラッシュする
+            let predicate = NSPredicate(format: "category = %@", "\(searchText)")
+            taskArray = realm.objects(Task.self).filter(predicate)
+            
         } else {
             //渡された文字列が空の場合は全てを表示
             let searchText = realm.objects(Task.self)
