@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		9A566380241DC7CF00FBB1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A56637F241DC7CF00FBB1E2 /* Assets.xcassets */; };
 		9A566383241DC7CF00FBB1E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A566381241DC7CF00FBB1E2 /* LaunchScreen.storyboard */; };
 		9A56638B241E6D6500FBB1E2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A56638A241E6D6500FBB1E2 /* InputViewController.swift */; };
+		9A5663AD2420469200FBB1E2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5663AC2420469200FBB1E2 /* Task.swift */; };
 		B4E504D38610AC282F4A6765 /* Pods_taskapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A2EA8AA49662AAC02B4E0 /* Pods_taskapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		9A566382241DC7CF00FBB1E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A566384241DC7CF00FBB1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A56638A241E6D6500FBB1E2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		9A5663AC2420469200FBB1E2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EB0A2EA8AA49662AAC02B4E0 /* Pods_taskapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,7 +52,6 @@
 				4780AC6713CC17A574272291 /* Pods-taskapp.debug.xcconfig */,
 				8CE92887865563B80C9B291A /* Pods-taskapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +80,7 @@
 				9A566378241DC7CE00FBB1E2 /* SceneDelegate.swift */,
 				9A56637A241DC7CE00FBB1E2 /* ViewController.swift */,
 				9A56638A241E6D6500FBB1E2 /* InputViewController.swift */,
+				9A5663AC2420469200FBB1E2 /* Task.swift */,
 				9A56637C241DC7CE00FBB1E2 /* Main.storyboard */,
 				9A56637F241DC7CF00FBB1E2 /* Assets.xcassets */,
 				9A566381241DC7CF00FBB1E2 /* LaunchScreen.storyboard */,
@@ -212,6 +214,7 @@
 			files = (
 				9A56637B241DC7CE00FBB1E2 /* ViewController.swift in Sources */,
 				9A566377241DC7CE00FBB1E2 /* AppDelegate.swift in Sources */,
+				9A5663AD2420469200FBB1E2 /* Task.swift in Sources */,
 				9A566379241DC7CE00FBB1E2 /* SceneDelegate.swift in Sources */,
 				9A56638B241E6D6500FBB1E2 /* InputViewController.swift in Sources */,
 			);
